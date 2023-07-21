@@ -4,8 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>애니메이션1</title>
+    <style>
+        /* transition:애니메이션 적용속성 지속시간; */
+        #btn1 {
+            background: aqua;
+            width:100px;
+            /* 지속시간이 각 속성마다 다를경우 */
+            /* transition:background 0.5s,width 0.8s; */
+            /* 지속시간이 모든 속성에 일치할때 */
+            transition:all 2s;
+            position: relative; left:0;
+        }
+        #btn1:hover {
+            background: yellow; /* hover에 트랜지션을 넣으면 마우스를 올릴때만 효과적용 */
+            width:150px;
+            padding: 20px; left:100px;
+        }
+        #btn2 {
+            width:100px;
+            transition:width 1.5s ease 0.5s,
+            height 2s linear 1s;
+             /* 두개이상 쓰면 첫번재는 지속시간, 두번째숫자는 지연시간. */
+        }
+        #btn2:hover {
+            width:200px; height:200px;
+            background: yellow;border-radius: 50%;
+        }
+        #btn3 {
+            padding:10px;
+        }
+        /* btn3에 마우스를 올렸을때 그 형제 box가 변경된다. */
+        #btn3:hover ~.box {/* 물결표시는 "형제들 중에서" 를 뜻함. */
+            background: rgb(162, 138, 142); 
+        /* transform:속성(값) 속성(값)*//* *1=100% */
+        /* transform 속성은 자식,자손에게도 영향을 준다. */
+            /* transform:scaleX(2) scaleY(2); */
+            /* transform:rotate(-60deg) scale(1.5); */
+            /* transform:skew(360deg, -20deg); */
+            transform: translateY(200px);
+        } 
+        .box {
+            transition:transform 1s;
+            width:100px; height:100px;
+            background:yellow;
+        }
+        #btn4 {
+            width:100px; height:50px;
+            
+        }
+        #btn4:hover ~.target {
+            width:200px; height:200px;
+            transition: all 2s;
+            transform: rotate(60deg);
+            left: 300px;
+            transform-origin: right-top;
+        }
+        .target {
+            display: block;
+            width:100px; height:100px;
+            background: lime;
+            border-radius: 25%;
+            transition: all 2s;
+            position: relative; left:0;
+        }
+    </style>
 </head>
 <body>
-    
+    <ul>
+        <li>
+            <button id="btn1">animation1</button>
+        </li>
+        <li>
+            <button type="button" id="btn2">animation2</button>
+        </li>
+        <li>
+            <button type="button" id="btn3">transform1</button>
+            <hr>
+            <div class="box">box</div>
+        </li>
+        <li>
+            <button id="btn4" type="button">transform2</button>
+            <hr>
+            <span class="target">적용대상</span>
+        </li>
+        <li></li>
+    </ul>
 </body>
 </html>
