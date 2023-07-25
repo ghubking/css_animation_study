@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gradient-animation-1</title>
+    <style>
+        #btn1 {
+            width:100px; height:50px;
+            background: linear-gradient(90deg, red, blue, green, yellow);
+            background-size: 400%;
+            transition: all 1s;
+        }
+        #btn1:hover {
+            background-position-x:100%; color: #fff;
+            
+        }
+        #btn2 {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, white,skyblue,black);
+            background-size: 200%;
+            background-position: center;
+            transition: all 1s;
+        }
+        #btn2:hover {
+            background-position: 100% 0; color:#fff;
+        }
+        #bg {
+            height:500px;
+            background: linear-gradient(-45deg, red, blue, green, yellow);
+            background-size: 400%;
+            animation: bg 5s ease alternate infinite
+        }
+        
+        @keyframes bg {
+            0% {background-position: 0 0;}
+            100% {background-position: 100% 50%;}  /* x축 100%, y축 50% 까지 이동. */
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1" type="button">click here</button>
+    <div id="bg"></div>
+    <button id="btn2" type="button">click here</button>
+</body>
+</html>

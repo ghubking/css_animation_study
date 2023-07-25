@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text gradient animation</title>
+    <style>
+        h1 {
+            font-weight: 800;
+            font-size: 5rem;
+            text-transform: uppercase; /* 대문자로 만드는 css 명령어 */
+            background: linear-gradient(90deg, white, pink, orange,lime,skyblue,
+            white); /* 시작색과 끝색을 동일하게 해주면 좀 더 부드러운 느낌. */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+            background-size: 400%;
+            animation: text_bg 10s linear alternate infinite;
+        }
+        @keyframes text_bg {
+            0% {background-position-x:0% ;}
+            100% {background-position-x:400% ;}
+        }
+    </style>
+</head>
+<body>
+    <h1>text gradient animation</h1>
+</body>
+</html>
